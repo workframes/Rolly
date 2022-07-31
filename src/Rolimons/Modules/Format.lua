@@ -41,6 +41,20 @@ local Format = {
         end
 
         return Clone
+    end,
+    RAP_TO_PRICE = function(oldRap, newRap)
+        return 10 * (newRap - oldRap) + oldRap
+    end,
+    EPOCH_TO_UTC = function(Epoch)
+        local Hours = math.floor(Epoch / 3600 % 12)
+        local Minutes = math.floor(Epoch / 60 % 60)
+        local Seconds = math.floor(Epoch % 60)
+
+        return { 
+            Hours = Hours,
+            Minutes = Minutes,
+            Seconds = Seconds,
+        }
     end
  }
 Format.__index = Format
@@ -134,6 +148,7 @@ function Format.TradeAd(Table, IncludeItemData)
 
     for Key, Value in pairs(Table["trade_ads"])do
         local tradeData = { 
+            TradeAdId = Value[1],
             UserId = Value[3],
             UserName = Value[4],
             Offering = { },
@@ -142,6 +157,10 @@ function Format.TradeAd(Table, IncludeItemData)
                 Tags = { }
             }
         }
+
+        local createdTime = Format.EPOCH_TO_UTC(Value[2])
+        
+        tradeData["Time"] = createdTime.Hours..":"..createdTime.Minutes..":"..createdTime.Seconds.." UTC"
 
         for Key, Value in pairs(Value[5]["items"])do
             if(IncludeItemData)then
@@ -192,4 +211,30 @@ function Format.TradeAd(Table, IncludeItemData)
     return newData
 end
 
+function Format.MarketActivity(Table)
+    local newData = {
+        ActivityCount = Table["activities_count"],
+        Activites = { }
+    }
+
+    for Key, Value in pairs(Table["activities"])do
+        local activityData = { }
+
+        local boughtTime = Format.EPOCH_TO_UTC(Value[1])
+        
+        activityData["Time"] = boughtTime.Hours..":"..boughtTime.Minutes..":"..boughtTime.Seconds.." UTC"
+        -- activityData["UnknowValue"] = Value[2]
+        activityData["Id"] = Value[3]
+        activityData["OldRap"] = Value[4]
+        activityData["NewRap"] = Value[5]
+        activityData["UAID"] = Value[6]
+        activityData["Price"] = Format.RAP_TO_PRICE(Value[4], Value[5])
+
+        table.insert(newData.Activites, activityData)
+    end
+
+    return newData
+end
+
 return Format
+

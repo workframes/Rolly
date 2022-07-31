@@ -22,6 +22,7 @@ local Rolimons = require(game.ReplicatedStorage.Rolimons)
 local Items = Rolimons.Items
 local Users = Rolimons.Users
 local TradeAds = Rolimons.TradeAds
+
 print(Items.GetItemDetials(1029025)) --> Classic Fedora
 print(Users.GetUserData(135190312)) --> Fetch UserData
 print(Users.GetUserData(135190312, true)) --> Fetch UserData w/ Item Details.
@@ -32,3 +33,6 @@ print(TradeAds.GetRecentAds(true)) --> Fetch RecentAds w/ Item Details.
 > **Suggestions**
 * If you have any ideas/suggestions for the module make sure to comment them!
 * This module is not yet finished and I'd like to add more to it in the future!
+
+> **GitHub**
+* The module is fully opensourced and free to use, If would like to contribute the project  feel free to using the the [Github Repository](https://github.com/workframes/Rolimons).
