@@ -1,5 +1,5 @@
 > **What is it?**
-* This module is made to interact with the [Roliomons](https://www.rolimons.com/) API. Easy to use, It's light weight meaning it will not take much memory in your game so your game will still run very smoothly.
+* This module is made to interact with the [Roliomons](https://www.rolimons.com/) API. Easy to use, It's lightweight meaning it will not take much memory in your game so your game will still run very smoothly.
 
 > **What Does it Include?**
 
@@ -11,6 +11,7 @@
 + https://www.rolimons.com/tradeadsapi/getrecentads
 + https://www.rolimons.com/api/playerassets/
 + https://www.rolimons.com/itemapi/itemdetails
++ https://www.rolimons.com/api/activity
 
 > **How do I get it?**
 * Simply get the model from roblox.
@@ -22,12 +23,14 @@ local Rolimons = require(game.ReplicatedStorage.Rolimons)
 local Items = Rolimons.Items
 local Users = Rolimons.Users
 local TradeAds = Rolimons.TradeAds
+local Market = Rolimons.Market
 
 print(Items.GetItemDetials(1029025)) --> Classic Fedora
 print(Users.GetUserData(135190312)) --> Fetch UserData
 print(Users.GetUserData(135190312, true)) --> Fetch UserData w/ Item Details.
 print(TradeAds.GetRecentAds()) --> Fetch UserData
 print(TradeAds.GetRecentAds(true)) --> Fetch RecentAds w/ Item Details.
+print(Market.GetMarketActivity()) --> Fetches Market Activity
 ```
 
 > **Suggestions**
