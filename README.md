@@ -27,7 +27,7 @@ local Users = Rolly.Users
 local TradeAds = Rolly.TradeAds
 local Market = Rolly.Market
 
-print(Items.GetItemDetials(1029025)) --> Classic Fedora
+print(Items.GetItemDetails(1029025)) --> Classic Fedora
 print(Users.GetUserData(135190312)) --> Fetch UserData
 print(Users.GetUserData(135190312, true)) --> Fetch UserData w/ Item Details.
 print(TradeAds.GetRecentAds()) --> Fetch UserData
