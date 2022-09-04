@@ -5,7 +5,7 @@ local Format = require(script.Parent.Modules.Format)
 local Items = { }
 Items.__index = Items
 
-function Items.GetItemDetials(Id)
+function Items.GetItemDetails(Id)
     if not(Id)then return error("Argument #1 of Items.GetItemDetials is missing or nil.") end
     repeat
         task.wait()
