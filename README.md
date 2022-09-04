@@ -44,3 +44,6 @@ print(Market.GetMarketActivity()) --> Fetches Market Activity
 
 > **GitHub**
 * The module is fully opensourced and free to use, If would like to contribute the project  feel free to using the the [Github Repository](https://github.com/workframes/Rolimons).
+
+> **Contact**
+* You can contact me through Discord, frames#4888
