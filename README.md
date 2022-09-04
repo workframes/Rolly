@@ -16,7 +16,7 @@
   * https://www.rolimons.com/api/activity
 
 > **How do I get it?**
-* Simply get the model from roblox.
+* Simply get the model from Roblox.
 https://www.roblox.com/library/10393564814/Roli-Module
 
 > **How do I use it?**
@@ -43,7 +43,7 @@ print(Market.GetMarketActivity()) --> Fetches Market Activity
 * This module is not yet finished and I'd like to add more to it in the future!
 
 > **GitHub**
-* The module is fully opensourced and free to use, If would like to contribute the project  feel free to using the the [Github Repository](https://github.com/workframes/Rolimons).
+* The module is fully open-sourced and free to use, If would like to contribute the project  feel free to using the the [Github Repository](https://github.com/workframes/Rolimons).
 
 > **Contact**
 * You can contact me through Discord, frames#4888
