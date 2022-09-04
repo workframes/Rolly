@@ -10,10 +10,10 @@
 * It also uses a Cache system to store necessary data, so the module doesn't have to spam request the API, however, the Cache does refresh every 300 seconds or 5 minutes.
 
 * Currently it only supports the following endpoints
-+ https://www.rolimons.com/tradeadsapi/getrecentads
-+ https://www.rolimons.com/api/playerassets/
-+ https://www.rolimons.com/itemapi/itemdetails
-+ https://www.rolimons.com/api/activity
+  * https://www.rolimons.com/tradeadsapi/getrecentads
+  * https://www.rolimons.com/api/playerassets/
+  * https://www.rolimons.com/itemapi/itemdetails
+  * https://www.rolimons.com/api/activity
 
 > **How do I get it?**
 * Simply get the model from roblox.
