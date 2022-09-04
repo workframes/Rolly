@@ -30,7 +30,7 @@ local Market = Rolly.Market
 print(Items.GetItemDetails(1029025)) --> Classic Fedora
 print(Users.GetUserData(135190312)) --> Fetch UserData
 print(Users.GetUserData(135190312, true)) --> Fetch UserData w/ Item Details.
-print(TradeAds.GetRecentAds()) --> Fetch UserData
+print(TradeAds.GetRecentAds()) --> Fetch RecentAds
 print(TradeAds.GetRecentAds(true)) --> Fetch RecentAds w/ Item Details.
 print(Market.GetMarketActivity()) --> Fetches Market Activity
 ```
