@@ -21,11 +21,11 @@ https://www.roblox.com/library/10393564814/Roli-Module
 
 > **How do I use it?**
 ```lua
-local Rolimons = require(game.ReplicatedStorage.Rolimons)
-local Items = Rolimons.Items
-local Users = Rolimons.Users
-local TradeAds = Rolimons.TradeAds
-local Market = Rolimons.Market
+local Rolly = require(game.ReplicatedStorage.Rolly)
+local Items = Rolly.Items
+local Users = Rolly.Users
+local TradeAds = Rolly.TradeAds
+local Market = Rolly.Market
 
 print(Items.GetItemDetials(1029025)) --> Classic Fedora
 print(Users.GetUserData(135190312)) --> Fetch UserData
@@ -34,6 +34,9 @@ print(TradeAds.GetRecentAds()) --> Fetch UserData
 print(TradeAds.GetRecentAds(true)) --> Fetch RecentAds w/ Item Details.
 print(Market.GetMarketActivity()) --> Fetches Market Activity
 ```
+
+> **How do I use it?**
+* Here is an example game I made using the module, https://www.roblox.com/games/10379476837/Rolly
 
 > **Suggestions**
 * If you have any ideas/suggestions for the module make sure to comment them!
