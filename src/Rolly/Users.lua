@@ -8,7 +8,7 @@ Users.__index = Users
 function Users.GetUserData(UserId, IncludeItemData)
     if not(UserId)then return error("Argument #1 of Users.GetUserData is missing or nil.") end
 
-    local Success, Connection = Http.Get("api/playerassets/"..tostring(UserId))
+    local Success, Connection = Http.Get("playerapi/player/"..tostring(UserId))
     local connectionSuccess, Body = Connection.Success, Http.Decode(Connection.Body)
 
     if(Success and connectionSuccess)then

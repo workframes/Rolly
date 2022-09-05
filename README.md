@@ -11,7 +11,7 @@
 
 * Currently it only supports the following endpoints
   * https://www.rolimons.com/tradeadsapi/getrecentads
-  * https://www.rolimons.com/api/playerassets/
+  * https://www.rolimons.com/playerapi/player
   * https://www.rolimons.com/itemapi/itemdetails
   * https://www.rolimons.com/api/activity
 
@@ -29,7 +29,6 @@ local Market = Rolly.Market
 
 print(Items.GetItemDetails(1029025)) --> Classic Fedora
 print(Users.GetUserData(135190312)) --> Fetch UserData
-print(Users.GetUserData(135190312, true)) --> Fetch UserData w/ Item Details.
 print(TradeAds.GetRecentAds()) --> Fetch RecentAds
 print(TradeAds.GetRecentAds(true)) --> Fetch RecentAds w/ Item Details.
 print(Market.GetMarketActivity()) --> Fetches Market Activity

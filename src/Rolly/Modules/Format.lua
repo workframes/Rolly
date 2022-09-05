@@ -97,44 +97,34 @@ function Format.ItemDetails(Table)
     return newData
 end
 
-function Format.UserData(Table, IncludeItemData)
+function Format.UserData(Table)
     local newData = {
         Badges = { },
-        ChartNominalScanTime = Table["chartNominalScanTime"],
-        IsOnline = Table["isOnline"],
-        LastLocation = Table["lastLocation"],
-        LastOnline = Table["lastOnline"],
-        LocationGameIsTracked = Table["locationGameIsTracked"],
-        Assets = {},
-        UserId = Table["playerId"],
-        PlayerPrivacyEnabled = Table["playerPrivacyEnabled"],
-        Terminated = Table["playerTerminated"],
-        Verified = Table["playerVerified"], 
-        HasPremium = Table["premium"], 
+        Name = Table["name"],
+        Value = Table["value"], 
+        Rap = Table["rap"],
+        Premium = Table["premium"],
+        PrivacyEnabled = Table["privacy_enabled"],
+        Terminated = Table["terminated"],
+        RawStatusUpdated = Table["stats_updated"],
+        RawLastOnline = Table["last_online"],
+        LastLocation = Table["last_location"],
     }
 
-    for Key, Value in pairs(Table["badges"])do
-        newData.Badges[Key] = Value
-    end
+    local statusUpdated = Format.EPOCH_TO_UTC(Table["stats_updated"])
+    local lastOnline = Format.EPOCH_TO_UTC(Table["last_online"])
 
-    if(IncludeItemData)then
-        repeat
-            task.wait()
-        until Cache.ITEM_DETIALS
+    newData["StatusUpdated"] = statusUpdated.Hours..":"..statusUpdated.Minutes..":"..statusUpdated.Seconds.." UTC"
+    newData["LastOnline"] = lastOnline.Hours..":"..lastOnline.Minutes..":"..lastOnline.Seconds.." UTC"
 
-        for Key, Value in pairs(Table["playerAssets"])do
-            if(Cache.ITEM_DETIALS.Items[tonumber(Key)])then
-                local clonedItemData = Format.SHALLOW_COPY(Cache.ITEM_DETIALS.Items[tonumber(Key)])
-                clonedItemData["UAID"] = Value[1]
-                newData.Assets[Key] = clonedItemData
-            else
-                newData.Assets[Key] = Value[1]
-            end
-        end
-    else
-        for Key, Value in pairs(Table["playerAssets"])do
-            newData.Assets[Key] = Value[1]
-        end
+    for Key, Value in pairs(Table["rolibadges"])do
+        local timeAcquired = Format.EPOCH_TO_UTC(Value)
+        local badgeData = {
+            RawTimeAcquired = Value,
+            TimeAcquired = timeAcquired.Hours..":"..timeAcquired.Minutes..":"..timeAcquired.Seconds.." UTC"
+        }
+
+        newData.Badges[Key] = badgeData
     end
 
     return newData
@@ -155,7 +145,8 @@ function Format.TradeAd(Table, IncludeItemData)
             Requesting = {
                 Items = { },
                 Tags = { }
-            }
+            },
+            RawTime = Value[2]
         }
 
         local createdTime = Format.EPOCH_TO_UTC(Value[2])
@@ -223,6 +214,7 @@ function Format.MarketActivity(Table)
         local boughtTime = Format.EPOCH_TO_UTC(Value[1])
         
         activityData["Time"] = boughtTime.Hours..":"..boughtTime.Minutes..":"..boughtTime.Seconds.." UTC"
+        activityData["RawTime"] = Value[1]
         -- activityData["UnknowValue"] = Value[2]
         activityData["Id"] = Value[3]
         activityData["OldRap"] = Value[4]
